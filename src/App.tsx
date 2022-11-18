@@ -6,7 +6,8 @@ import axios from "axios";
 
 //constants
 const CLIENT_ID = "9ce584ba520242df94bd8fa9ba33d4cd";
-const REDIRECT_URI = "http://localhost:5173";
+// LOCAL TEST ==> const REDIRECT_URI = "http://localhost:5173";
+const REDIRECT_URI = "https://candid-cuchufli-973630.netlify.app/";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
@@ -50,9 +51,9 @@ function App() {
     if (search != "") {
       setIsLoading(true);
       const id = await fetchArtistId(search);
-      fetchInfoArtist(id);
-      fetchAlbums(id);
-      fetchArtistTopTracks(id);
+      await fetchInfoArtist(id);
+      await fetchAlbums(id);
+      await fetchArtistTopTracks(id);
       setIsLoading(false);
     }
   }
@@ -97,12 +98,12 @@ function App() {
     const { data } = await axios.get(`https://api.spotify.com/v1/artists/${id}/top-tracks/?country=US`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+
     let topTracks = data.tracks;
     setResult((result) => ({
       ...result,
       topTracks: topTracks,
     }));
-    console.log(topTracks);
   };
 
   //Render
@@ -115,7 +116,7 @@ function App() {
 
       <div className='App-Main'>
         {isLoading ? <h3>Loading..</h3> : []}
-        {result.albums.length ? (
+        {result.albums.length && result.topTracks.length ? (
           <>
             <Artist artist={result.artist} topTracks={result.topTracks} />
             <Album albums={result.albums} />
