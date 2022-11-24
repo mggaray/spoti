@@ -1,6 +1,5 @@
 import React from "react";
-import "../index.css";
-
+import "../sass/index.css";
 function Artist({ artist, topTracks }: any) {
   let topTracksResult = topTracks.map((track: any) => {
     return [

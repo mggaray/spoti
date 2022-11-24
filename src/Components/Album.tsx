@@ -1,4 +1,4 @@
-import "../index.css";
+import "../sass/index.css";
 function Result({ albums }: any) {
   let albumsFiltrados: any = [];
 

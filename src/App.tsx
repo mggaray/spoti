@@ -6,8 +6,7 @@ import axios from "axios";
 
 //constants
 const CLIENT_ID = "9ce584ba520242df94bd8fa9ba33d4cd";
-// LOCAL TEST ==> const REDIRECT_URI = "http://localhost:5173";
-const REDIRECT_URI = "https://candid-cuchufli-973630.netlify.app/";
+const REDIRECT_URI = "https://candid-cuchufli-973630.netlify.app";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
@@ -30,6 +29,7 @@ function App() {
         .split("=")[1];
       window.localStorage.setItem("token", tokenLS); //localstorage
       window.location.hash = "";
+      location.reload();
     }
     setToken(tokenLS);
     setIsLoading(false);
@@ -110,7 +110,7 @@ function App() {
   return (
     <>
       <div className='title-container'>
-        <h1>Buscador Spotify</h1>
+        <h1>Spotify Search</h1>
         {token != null ? <Form handleChange={handleChange} handleSubmit={handleSubmit} /> : <h2>Please Log in</h2>}
       </div>
 

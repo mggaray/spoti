@@ -1,12 +1,11 @@
 :root {
-  font-family: Roboto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #22223b;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -41,24 +40,43 @@ body {
   flex-wrap: wrap;
   padding: 0;
 }
+.result-container div {
+  margin: 0;
+  max-width: 33%;
+  max-height: 20%;
+}
+.result-container div img {
+  max-width: 70%;
+  max-height: 70%;
+  border-radius: 10px;
+}
+
+form {
+  font-style: italic;
+}
+form input {
+  background: none;
+  border: none;
+  border-bottom: 1px white solid;
+  font-size: 1.2rem;
+}
+form input:focus {
+  outline: none;
+}
+form button {
+  margin-left: 1%;
+  background-color: #4a4e69;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+}
 
 h3 {
   font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
+  border: none;
   text-overflow: ellipsis;
-}
-
-.result-container > div {
-  margin: 0;
-  max-width: 33%;
-  max-height: 20%;
-}
-
-.result-container > div > img {
-  max-width: 70%;
-  max-height: 70%;
-  border-radius: 10px;
 }
 
 .artist-container {
@@ -80,34 +98,43 @@ a {
 
 .artist-photo {
   align-self: center;
-  width: 20%;
-  height: 30%;
+  width: 30%;
+  height: 40%;
   border-radius: 50%;
 }
 
 .artist-info {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-
-.artist-info > p {
+.artist-info p {
   margin: 2% 3% 2% 3%;
 }
 
-@media (max-width: 820px) {
-  .artist-container {
-    padding: 15%;
-    margin-top: 5%;
+@media (max-width: 700px) {
+  body {
+    padding: 0;
   }
-
+  .artist-container {
+    padding: 10% 20%;
+    margin-top: 10%;
+  }
+  .artist-photo {
+    height: 70%;
+    width: 60%;
+  }
   .result-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
-
   .result-container > div {
-    max-width: 50%;
+    max-width: 70%;
     max-height: auto;
   }
-}
+  .result-container > div > img {
+    width: 130%;
+    height: 120%;
+  }
+}/*# sourceMappingURL=index.css.map */
