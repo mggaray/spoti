@@ -1,6 +1,11 @@
 import "../sass/index.css";
+interface Ialbum {
+  name: string;
+  album_group: string;
+  images: Array<any>;
+}
 function Result({ albums }: any) {
-  let albumsFiltrados: any = [];
+  let albumsFiltrados: Array<Ialbum> = [];
 
   albums.forEach((album: any, index: number) => {
     if (index >= 1) {
@@ -11,9 +16,9 @@ function Result({ albums }: any) {
     }
   });
 
-  let result = albumsFiltrados.map((album: any) => {
+  let result = albumsFiltrados.map((album: Ialbum) => {
     return [
-      <div key={album}>
+      <div key={album.name}>
         <h3> {album.name}</h3>
         <img src={album.images[0].url}></img>
       </div>,

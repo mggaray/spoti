@@ -29,8 +29,18 @@
 
 body {
   padding: 2rem;
+  transition: all 0.4s ease-in;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    font-size: 1.1rem;
+    color: variables.$highlight;
+  }
+}
 .title-container {
   text-align: center;
   display: flex;
@@ -53,7 +63,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0;
-
   div {
     margin: 0;
     max-width: 33%;
@@ -70,6 +79,7 @@ form {
   font-style: italic;
   input {
     background: none;
+    color: white;
     border: none;
     border-bottom: 1px white solid;
     font-size: 1.2rem;
@@ -81,8 +91,13 @@ form {
     margin-left: 1%;
     background-color: variables.$background-secondary;
     border: none;
-    padding: 10px;
+    padding: 8px;
     border-radius: 3px;
+    transition: all 0.4s ease-in;
+    &:hover {
+      background-color: variables.$highlight;
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -104,11 +119,7 @@ h3 {
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
-}
-
-a {
-  text-decoration: none;
-  color: white;
+  margin-bottom: 10%;
 }
 
 .artist-photo {
@@ -120,8 +131,9 @@ a {
 
 .artist-info {
   @include flex(col);
+  width: 100%;
   p {
-    margin: 2% 3% 2% 3%;
+    margin: 5% 2% 2% 2%;
   }
 }
 
