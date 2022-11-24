@@ -6,7 +6,7 @@ import axios from "axios";
 
 //constants
 const CLIENT_ID = "9ce584ba520242df94bd8fa9ba33d4cd";
-const REDIRECT_URI = "https://candid-cuchufli-973630.netlify.app";
+const REDIRECT_URI = "https://spotify-searchmg.netlify.app/";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
