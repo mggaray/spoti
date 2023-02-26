@@ -1,4 +1,3 @@
-import React from "react";
 import "../sass/index.css";
 function Artist({ artist, topTracks }: any) {
   let topTracksResult = topTracks.map((track: any) => {
@@ -11,10 +10,10 @@ function Artist({ artist, topTracks }: any) {
 
   return (
     <>
-      <div className='artist-container'>
+      <div className="artist-container">
         <h1>{artist.name}</h1>
-        <img className='artist-photo' src={artist.images[0].url} />
-        <div className='artist-info'>
+        <img className="artist-photo" src={artist.images[0].url} />
+        <div className="artist-info">
           <p> {`Followers: ${artist.followers.total}`}</p>
           <p>{`Popularity: ${artist.popularity}`}</p>
         </div>

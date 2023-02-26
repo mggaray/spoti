@@ -4,9 +4,9 @@ interface Ialbum {
   album_group: string;
   images: Array<any>;
 }
+
 function Result({ albums }: any) {
   let albumsFiltrados: Array<Ialbum> = [];
-
   albums.forEach((album: any, index: number) => {
     if (index >= 1) {
       if (albums[index - 1].name === album.name) {
@@ -28,7 +28,7 @@ function Result({ albums }: any) {
   return (
     <div>
       <h1>Albums</h1>
-      <div className='result-container'>{result}</div>
+      <div className="result-container">{result}</div>
     </div>
   );
 }

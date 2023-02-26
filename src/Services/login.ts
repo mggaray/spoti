@@ -12,3 +12,9 @@ export const login = () => {
   }
   return tokenLS;
 };
+
+export const logout = (setToken: Function): void => {
+  setToken(null);
+  window.localStorage.removeItem("token");
+  location.reload();
+};

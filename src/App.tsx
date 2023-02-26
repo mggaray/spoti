@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Components/Form";
 import Album from "./Components/Album";
 import Artist from "./Components/Artist";
-import { login } from "./Services/login";
-import { Iresult, fetchArtistId, fetchAlbums, fetchArtistTopTracks, fetchInfoArtist } from "./Services/artist";
+import { login, logout } from "./Services/login";
+import {
+  Iresult,
+  fetchArtistId,
+  fetchAlbums,
+  fetchArtistTopTracks,
+  fetchInfoArtist,
+} from "./Services/artist";
 import { credentials } from "./Services/credentials";
 
 function App() {
   //State definition
   const [token, setToken] = useState<string | boolean | null>("");
   let [search, setSearch] = useState<string>("");
-  let [result, setResult] = useState<Iresult>({ artist: "", albums: "", topTracks: "" });
+  let [result, setResult] = useState<Iresult>({
+    artist: "",
+    albums: "",
+    topTracks: "",
+  });
   let [isLoading, setIsLoading] = useState<boolean>(false);
 
   //Methods & handlers
@@ -20,12 +30,6 @@ function App() {
     setIsLoading(false);
     window.location.hash = "";
   }, []); //this method is for accessing and storing the token in the hash
-
-  const logout = () => {
-    setToken(null);
-    window.localStorage.removeItem("token");
-    location.reload();
-  };
 
   const handleChange = (event: any): void => {
     setTimeout(() => {
@@ -45,7 +49,7 @@ function App() {
     e.preventDefault();
     if (search != "") {
       setIsLoading(true);
-      const id = await fetchArtistId(search, artistReq);
+      const id = await fetchArtistId(artistReq);
       await fetchInfoArtist({ id, setResult, result, token });
       await fetchAlbums({ id, setResult, result, token });
       await fetchArtistTopTracks({ id, setResult, result, token });
@@ -56,12 +60,16 @@ function App() {
   //Render
   return (
     <>
-      <div className='title-container'>
+      <div className="title-container">
         <h1>Spotify Search</h1>
-        {token != null ? <Form handleChange={handleChange} handleSubmit={handleSubmit} /> : <h2>Please Log in</h2>}
+        {token != null ? (
+          <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+        ) : (
+          <h2>Please Log in</h2>
+        )}
       </div>
 
-      <div className='App-Main'>
+      <div className="App-Main">
         {isLoading ? <h3>Loading..</h3> : []}
         {result.albums.length && result.topTracks.length ? (
           <>
@@ -78,7 +86,7 @@ function App() {
             Login to Spotify
           </a>
         ) : (
-          <button onClick={logout}>Logout</button>
+          <button onClick={() => logout(setToken)}>Logout</button>
         )}
       </div>
     </>
