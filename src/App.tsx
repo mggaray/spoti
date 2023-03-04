@@ -56,7 +56,6 @@ function App() {
       setIsLoading(false);
     }
   }
-
   //Render
   return (
     <>
@@ -68,7 +67,6 @@ function App() {
           <h2>Please Log in</h2>
         )}
       </div>
-
       <div className="App-Main">
         {isLoading ? <h3>Loading..</h3> : []}
         {result.albums.length && result.topTracks.length ? (

@@ -1,11 +1,12 @@
 import "../sass/index.css";
+import Track from "./Track";
+import { Itrack } from "../Services/track";
+
 function Artist({ artist, topTracks }: any) {
-  let topTracksResult = topTracks.map((track: any) => {
-    return [
-      <h3 key={track}>
-        <a href={track.preview_url}>{track.name}</a>{" "}
-      </h3>,
-    ];
+  let topTracksResult = topTracks.map((trackObject: Itrack, index: number) => {
+    return (
+      <Track key={index} audio={trackObject.audio} name={trackObject.name} />
+    );
   });
 
   return (
@@ -17,7 +18,7 @@ function Artist({ artist, topTracks }: any) {
           <p> {`Followers: ${artist.followers.total}`}</p>
           <p>{`Popularity: ${artist.popularity}`}</p>
         </div>
-        <div>
+        <div className="tracks-container">
           <h1>Top Tracks</h1>
           <div>{topTracksResult}</div>
         </div>

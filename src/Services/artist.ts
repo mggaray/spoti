@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Previews, Itrack } from "./track";
+
 //Inteface declaration
 export interface IartistRequest {
   id: string;
@@ -62,10 +64,11 @@ export const fetchArtistTopTracks = async ({
     }
   );
 
-  let topTracks: Array<object> = data.tracks;
+  let topTracks: Array<Itrack> = data.tracks;
+  const res = Previews(topTracks);
 
   setResult((result: Iresult) => ({
     ...result,
-    topTracks: topTracks,
+    topTracks: res,
   }));
 };
