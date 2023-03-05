@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Form from "./Components/Form";
 import Album from "./Components/Album";
 import Artist from "./Components/Artist";
-import { login, logout } from "./Services/login";
+import {getSpotifyToken } from "./Services/auth";
 import {
   Iresult,
   fetchArtistId,
@@ -22,13 +22,15 @@ function App() {
     topTracks: "",
   });
   let [isLoading, setIsLoading] = useState<boolean>(false);
-
   //Methods & handlers
   useEffect(() => {
-    const tokenLS = login();
-    setToken(tokenLS);
-    setIsLoading(false);
-    window.location.hash = "";
+    const fetchToken = async () => { 
+      const tokenCCW= await getSpotifyToken();
+      setToken(tokenCCW);
+      setIsLoading(false);
+      window.location.hash = "";
+  }
+  fetchToken()
   }, []); //this method is for accessing and storing the token in the hash
 
   const handleChange = (event: any): void => {
@@ -83,9 +85,7 @@ function App() {
           >
             Login to Spotify
           </a>
-        ) : (
-          <button onClick={() => logout(setToken)}>Logout</button>
-        )}
+        ) : []}
       </div>
     </>
   );

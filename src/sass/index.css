@@ -150,6 +150,11 @@ h3 {
   background-color: #e8bd8f;
   align-self: center;
   justify-self: flex-end;
+  font-weight: bolder;
+  transition: all ease-in-out 0.5s;
+}
+.track-info > button:hover {
+  transform: scale(1.2);
 }
 
 @media (max-width: 800px) {

@@ -162,6 +162,11 @@ h3 {
     background-color: variables.$highlight;
     align-self: center;
     justify-self: flex-end;
+    font-weight: bolder;
+    transition: all ease-in-out 0.5s;
+    &:hover{
+      transform: scale(1.2);
+    }
   }
 }
 
