@@ -10,7 +10,6 @@ import {
   fetchArtistTopTracks,
   fetchInfoArtist,
 } from "./Services/artist";
-import { credentials } from "./Services/credentials";
 
 function App() {
   //State definition
@@ -65,9 +64,8 @@ function App() {
         <h1>Spotify Search</h1>
         {token != null ? (
           <Form handleChange={handleChange} handleSubmit={handleSubmit} />
-        ) : (
-          <h2>Please Log in</h2>
-        )}
+        ) : [] 
+        }
       </div>
       <div className="App-Main">
         {isLoading ? <h3>Loading..</h3> : []}
@@ -79,13 +77,6 @@ function App() {
         ) : (
           []
         )}
-        {token == null ? (
-          <a
-            href={`${credentials.AUTH_ENDPOINT}?client_id=${credentials.CLIENT_ID}&redirect_uri=${credentials.REDIRECT_URI}&response_type=${credentials.RESPONSE_TYPE}`}
-          >
-            Login to Spotify
-          </a>
-        ) : []}
       </div>
     </>
   );

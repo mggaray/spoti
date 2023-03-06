@@ -1,7 +1,6 @@
 import {credentials} from "./credentials"
 const client_id = credentials.CLIENT_ID
 const client_secret =credentials.CLIENT_SECRET
-
 export async function getSpotifyToken():Promise<string>{
 
 let tokenCCW:string = ""
