@@ -18,7 +18,7 @@ function Result({ albums }: any) {
       }
     }
   });
-  console.log(albumsFiltrados);
+
   let result = albumsFiltrados.map((album: Ialbum) => {
     return [
       <div key={album.name}>
