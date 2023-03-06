@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Form from "./Components/Form";
 import Album from "./Components/Album";
 import Artist from "./Components/Artist";
-import {getSpotifyToken } from "./Services/auth";
+import { getSpotifyToken } from "./Services/auth";
 import {
   Iresult,
   fetchArtistId,
@@ -23,13 +23,13 @@ function App() {
   let [isLoading, setIsLoading] = useState<boolean>(false);
   //Methods & handlers
   useEffect(() => {
-    const fetchToken = async () => { 
-      const tokenCCW= await getSpotifyToken();
+    const fetchToken = async () => {
+      const tokenCCW = await getSpotifyToken();
       setToken(tokenCCW);
       setIsLoading(false);
       window.location.hash = "";
-  }
-  fetchToken()
+    };
+    fetchToken();
   }, []); //this method is for accessing and storing the token in the hash
 
   const handleChange = (event: any): void => {
@@ -61,11 +61,12 @@ function App() {
   return (
     <>
       <div className="title-container">
-        <h1>Spotify Search</h1>
+        <h1>Artist Search</h1>
         {token != null ? (
           <Form handleChange={handleChange} handleSubmit={handleSubmit} />
-        ) : [] 
-        }
+        ) : (
+          []
+        )}
       </div>
       <div className="App-Main">
         {isLoading ? <h3>Loading..</h3> : []}

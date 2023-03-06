@@ -30,10 +30,13 @@ a:hover {
 
 .title-container {
   text-align: center;
-  display: flex;
+  display: fle3;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
+}
+.title-container > h1 {
+  margin-bottom: 35px;
 }
 
 .App-Main > * {
@@ -71,6 +74,7 @@ form input {
   border: none;
   border-bottom: 1px white solid;
   font-size: 1.2rem;
+  font-family: Monospace;
 }
 form input:focus {
   outline: none;
@@ -80,6 +84,7 @@ form button {
   background-color: #4a4e69;
   border: none;
   padding: 8px;
+  color: white;
   border-radius: 3px;
   transition: all 0.4s ease-in;
 }
@@ -106,7 +111,7 @@ h3 {
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .artist-photo {
@@ -122,6 +127,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 35px;
 }
 .artist-info p {
   margin: 10px 5px 10px 5px;
@@ -131,6 +137,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .track-info {
@@ -140,7 +147,9 @@ h3 {
   align-self: center;
 }
 .track-info > h3 {
-  margin-right: 10px;
+  margin-right: 20px;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 .track-info > button {
   width: 30px;
@@ -181,6 +190,9 @@ h3 {
   .result-container > div > img {
     width: 130%;
     height: 120%;
+  }
+  .track-info > h3 {
+    font-size: 0.8rem;
   }
 }
 
