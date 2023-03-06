@@ -13,9 +13,8 @@
 }
 
 :root {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 16px;
+  font-family: "Monospace";
+  font-size: 18px;
   line-height: 24px;
   font-weight: 400;
   color-scheme: light dark;
@@ -164,7 +163,7 @@ h3 {
     justify-self: flex-end;
     font-weight: bolder;
     transition: all ease-in-out 0.5s;
-    &:hover{
+    &:hover {
       transform: scale(1.2);
     }
   }

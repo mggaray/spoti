@@ -10,12 +10,15 @@ function Result({ albums }: any) {
   albums.forEach((album: any, index: number) => {
     if (index >= 1) {
       if (albums[index - 1].name === album.name) {
-      } else if (album.album_group != "appears_on") {
+      } else if (
+        album.album_group != "appears_on" &&
+        album.available_markets.length > 3
+      ) {
         albumsFiltrados.push(album);
       }
     }
   });
-
+  console.log(albumsFiltrados);
   let result = albumsFiltrados.map((album: Ialbum) => {
     return [
       <div key={album.name}>
