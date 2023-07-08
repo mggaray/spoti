@@ -1,6 +1,6 @@
 # spoti
-✨ WebApp created using ReactJS, Typescript, SASS that consumes the spotify API to get all the info
-🎉DEPLOY: https://spotify-searchmg.netlify.app/
+✨ WebApp created using ReactJS, Typescript, SASS that consumes the spotify API to get all the info <br>
+🎉 DEPLOY: https://spotify-searchmg.netlify.app/
 
 ## Screenshots
 ### Web
